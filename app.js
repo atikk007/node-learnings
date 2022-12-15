@@ -5,7 +5,7 @@ const app = express();
 
 const propertyRoutes = require('./routes/propertyRoutes');
 // Connect to MongoDb
-const dbURI = "mongodb+srv://atik007:rtm07412@cluster0.qczrebp.mongodb.net/sample_airbnb?retryWrites=true&w=majority";
+const dbURI = process.env.URL;
 
 // Setting up Mongoose ODM - 
 const mongoose = require('mongoose');
