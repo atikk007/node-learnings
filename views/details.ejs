@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <div class="details content">
+            <h2>
+                <%= property.title %>
+            </h2>
+            <div class="content">
+                <p>
+                    <%= property.size %>
+                </p>
+            </div>
+            <div class="content">
+                <p>
+                    <%= property.body %>
+                </p>
+            </div>
+            <a class="delete" data-doc="<%= property.id %>">delete</a>
+        </div>
+        <!-- data-anything gives us the power to define our own attributes that we generally use or control with
+          js. -->
+
+
+        <script>
+            const trashcan = document.querySelector('a.delete');
+
+            // dataset.attributename gives us access to our custom attribute defined with the data- method.
+
+            trashcan.addEventListener('click', (e) => {
+                const endpoint = `/property/${trashcan.dataset.doc}`;
+
+                fetch(endpoint, {
+                    method: 'DELETE',
+                })
+                    .then(response => response.json())
+                    .then(data => window.location.href = data.redirect)
+                    .catch(err => console.log(err));
+            });
+
+        </script>
+    </body>
+
+</html>

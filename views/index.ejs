@@ -1,0 +1,45 @@
+<html lang="en">
+
+<%- include ('./partials/head.ejs')%>
+
+  <body>
+    <h1>Home</h1>
+    <a href="/property/search">search property</a>
+    <a href="/addprop">Add new property</a>
+    <h2>Your path to becoming a Node.js ninja!</h2>
+    <p>Here i am attaching an image for reference....</p>
+    <img src="/ksolves.png" alt="attached-img">
+    <br>
+    <br>
+    <hr>
+    <h3>This is the property listing from the database - </h3>
+
+    <h3>
+      <%= title %>
+    </h3>
+    <h1>
+      The property length is - <%= property.length %>
+    </h1>
+    <% if(property.length>0) { %>
+      <% property.forEach(pro=> { %>
+        <a class="single" href="/property/<%= pro.id %>">
+          <h4>
+            <%= pro.title%>
+          </h4>
+        </a>
+        <p>
+          <%= pro.size%>
+        </p>
+        <p>
+          <%= pro.body%>
+        </p>
+        <!-- data-anything gives us the power to define our own attributes that we generally use or control with
+          js. -->
+        <% }) %>
+          <% } else { %>
+            <p>OOPs! There are no properties to display...</p>
+            <% } %>
+
+  </body>
+
+</html>

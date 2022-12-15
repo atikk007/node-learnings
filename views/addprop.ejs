@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ('./partials/head.ejs') %>
+
+    <body>
+        <form action="/addprop" method="post">
+            <label for="title">Title :</label>
+            <input type="text" name="title" id="title">
+            <br>
+            <br>
+            <label for="size">Size :</label>
+            <input type="text" name="size" id="size">
+            <br>
+            <br>
+            <label for="body">Body :</label>
+            <input type="body" name="body" id="body">
+            <br>
+            <br>
+            <input type="submit" value="submit">
+        </form>
+    </body>
+
+</html>
