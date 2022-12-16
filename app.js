@@ -5,7 +5,8 @@ const app = express();
 
 const propertyRoutes = require('./routes/propertyRoutes');
 // Connect to MongoDb
-const dbURI = process.env.URL;
+require('dotenv').config();
+const dbURI = process.env.PORT;
 
 // Setting up Mongoose ODM - 
 const mongoose = require('mongoose');
